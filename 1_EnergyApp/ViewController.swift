@@ -20,11 +20,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var label3: UILabel!
     @IBAction func changeButton(_ sender: Any) {
-        if let weight = textField.text {
-            let energy = Int(weight)! * 299792458 * 299792458
-            let nuclear = energy / (1000000 * 1000 * 3600 * 24 * 365)
-            label2.text = "\(energy)Jです"
-            label3.text = "原発\(nuclear)こ分だよ"
+        if let weight = Int(textField.text!) {
+            if weight > 100 {
+                label1.text = "100キロ以上の人は使えないよ"
+                label2.text = "　"
+                label3.text = "　"
+            } else {
+                let energy = weight * 299792458 * 299792458
+                let nuclear = energy / (1000000 * 1000 * 3600 * 24 * 365)
+                label1.text = "あなたが持っているエネルギーは"
+                label2.text = "\(energy)Jです"
+                label3.text = "原発\(nuclear)こ分だよ"
+            }
         }
     }
     
