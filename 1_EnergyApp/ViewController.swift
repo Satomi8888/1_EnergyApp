@@ -10,21 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
-//    var img = UIImage(named:"picture")!
+    var img = UIImage(named:"picture")!
 
     @IBOutlet weak var label0: UILabel!
     @IBOutlet weak var myImageView: UIImageView!
-    //空、0、桁が多い時にアプリが落ちないようにする
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var label3: UILabel!
     @IBAction func changeButton(_ sender: Any) {
+        //ボタンを押した時の処理
         if let weight = Int(textField.text!) {
             if weight > 100 {
                 label1.text = "100キロ以上の人は使えないよ"
-                label2.text = "　"
-                label3.text = "　"
+                label2.text = ""
+                label3.text = ""
             } else {
                 let energy = weight * 299792458 * 299792458
                 let nuclear = energy / (1000000 * 1000 * 3600 * 24 * 365)
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        myImageView.image = img
+        myImageView.image = img
     }
 
     override func didReceiveMemoryWarning() {
